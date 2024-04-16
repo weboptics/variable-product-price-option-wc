@@ -15,7 +15,7 @@ This plugin gives the ability to alter price of product in wordpress Woocommerce
 
 == Description ==
 
-Simplify your online store's shipping choices with the Easy Ship Options plugin for WordPress. This tool lets you effortlessly manage how shipping methods are displayed, providing a seamless shopping experience for your customers.
+Variable Product Price Option for WooCommerce" is a powerful WordPress plugin designed to enhance your WooCommerce store's flexibility and customer experience. With this plugin, you can offer dynamic pricing options for your products
 
 == Changelog ==
 
