@@ -17,6 +17,9 @@ This plugin gives the ability to alter price of product in wordpress Woocommerce
 
 Variable Product Price Option for WooCommerce" is a powerful WordPress plugin designed to enhance your WooCommerce store's flexibility and customer experience. With this plugin, you can offer dynamic pricing options for your products
 
+== Screenshots ==
+1. change the price by clicking on the custom button and adding price
+
 == Changelog ==
 
 = 1.0.0 =
