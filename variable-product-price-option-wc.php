@@ -119,9 +119,9 @@ class HS_WCVPO_Init{
 		woocommerce_wp_checkbox(
 			array(
 				'id' => '_enable_custom_price',
-				'label' => __('Enable Custom Price', 'woocommerce'),
+				'label' => __('Enable Custom Price', 'variable-product-price-option-wc'),
 				'desc_tip' => 'true',
-				'description' => __('Check this box to enable a custom price for this product.', 'woocommerce')
+				'description' => __('Check this box to enable a custom price for this product.', 'variable-product-price-option-wc')
 			)
 		);
 		echo '</div>';
@@ -143,7 +143,7 @@ class HS_WCVPO_Init{
 
 		if ($enable_custom_price === 'yes') {
 			echo '<div class="custom-field-value">';
-			echo '<strong>' . __('Custom Price Enabled:', 'woocommerce') . '</strong> ' . __('Yes', 'woocommerce');
+			echo '<strong>' . __('Custom Price Enabled:', 'variable-product-price-option-wc') . '</strong> ' . __('Yes', 'variable-product-price-option-wc');
 			echo '</div>';
 		}
 	}
