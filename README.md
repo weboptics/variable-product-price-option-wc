@@ -3,8 +3,8 @@
 Contributors: haseebnawaz298
 Tags: woocommerce, variable price, product price, change price,custom price,
 Requires at least: 4.5.0
-Tested up to: 6.4.3
-Stable tag: 1.0.2
+Tested up to: 6.6
+Stable tag: 1.0.3
 WC requires at least: 3
 WC tested up to: 5.6.0
 License: GPL v2 or later
@@ -60,3 +60,6 @@ Submit a issue <a href="https://github.com/webzombies/variable-product-price-opt
 * Option to enable disable custom price feature.
 * added install instruction
 * added screenshot
+
+ 1.0.3 =
+* Updated test

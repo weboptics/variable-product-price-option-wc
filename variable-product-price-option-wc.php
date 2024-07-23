@@ -3,7 +3,7 @@
  * Plugin Name:       Variable Product Price Option for WooCommerce
  * Plugin URI:        https://github.com/webzombies/variable-product-price-option-wc
  * Description:       This plugin gives the ability to alter price of product in wordpress Woocommerce.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Requires at least: 5.8
  * Requires PHP:      7.2
  * Author:            Haseeb Nawaz Awan
