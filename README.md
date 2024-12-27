@@ -4,7 +4,7 @@ Contributors: weboptics, haseebnawaz298
 Tags: woocommerce, variable price, product price, change price,custom price,
 Requires at least: 4.5.0
 Tested up to: 6.7.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 WC requires at least: 3
 WC tested up to: 5.6.0
 License: GPL v2 or later
