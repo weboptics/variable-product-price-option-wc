@@ -1,0 +1,46 @@
+{
+	"Map Get Variable": {
+		"prefix": "scssmapget",
+		"body": ["map-get(${1:\\$colors}, ${2:color1});"],
+		"description": "Used to retrive values from map variable in scss."
+	},
+	"SCSS Block Comment": {
+		"prefix": "scssblockcomment",
+		"body": [
+			"/*******************************************************\r",
+			"${1:Default WordPress comments}",
+			"********************************************************/\r",
+			"\r"
+		],
+		"description": "Used to generate comment for section title."
+	},
+	"Second Level Heading Comment": {
+		"prefix": "scssheading2comment",
+		"body": [
+			"/*-------------------------------------------------\r",
+			">> ${1:Accessibility styles for WordPress}\r",
+			"-------------------------------------------------*/",
+			"\r"
+		],
+		"description": "Used to generate the comment for second level heading."
+	},
+	"Output Template directory URI": {
+		"prefix": "phpTempalteDirectoryURI",
+		"body": ["<?php echo get_template_directory_uri(); ?>/"],
+		"description": "Use this to Output Template directory URI code in a file with a trailing slash."
+	},
+	"SCSS Color variable get": {
+		"prefix": "scss_color_mapget_variable",
+		"body": ["map-get(\\$map: \\$colors, \\$key: ${1:black})"],
+		"description": "Use this to display the code that displays the color from the $colors variable."
+	},
+	"Default background properties for repeat, size and position.": {
+		"prefix": "scss_bg_defaults",
+		"body": [
+			"background-repeat: no-repeat;",
+			"background-size: cover;",
+			"background-position: center center;"
+		],
+		"description": "Default background properties for repeat, size and position."
+	}
+}

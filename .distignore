@@ -1,7 +1,21 @@
 /.wordpress-org
 /.git
+/.vscode
 /.github
 /node_modules
+/src
+/vendor
 
+.editorconfig
+.eslintrc
+.nvmrc
+.stylelintignore
 .distignore
 .gitignore
+LICENSE
+nvm.sh
+phpcs.xml.dist
+package.json
+package-lock.json
+composer.json
+composer.lock

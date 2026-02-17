@@ -1,0 +1,50 @@
+{
+	"phpcbf.enable": true,
+	"phpcbf.documentFormattingProvider": true,
+	"phpcbf.onsave": false,
+	"phpcs.standard": "WordPress",
+	"phpcbf.standard": "WordPress",
+	//for css and js
+	"stylelint.enable": true,
+	"css.validate": false,
+	"scss.validate": false,
+	"editor.formatOnPaste": true,
+	"prettier.eslintIntegration": true,
+	"prettier.stylelintIntegration": true,
+	"stylelint.validate": ["css", "scss"],
+	"editor.formatOnSave": true,
+	"eslint.autoFixOnSave": true,
+	"[css]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[php]": {
+		"editor.detectIndentation": true,
+		"editor.useTabStops": true,
+		"editor.formatOnSave": false,
+		"editor.insertSpaces": false
+	},
+	"[javascript]": {
+		"editor.insertSpaces": true,
+		"editor.detectIndentation": true,
+		"editor.useTabStops": false,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[json]": {
+		"editor.formatOnSave": false
+	},
+	"[xml]": {
+		"editor.formatOnSave": false
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.enable": true,
+	"eslint.alwaysShowStatus": true,
+	"eslint.validate": ["javascript", "javascriptreact", "html"],
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"cSpell.words": ["ABSPATH", "absint"],
+	"workbench.editor.dragToOpenWindow": false
+}

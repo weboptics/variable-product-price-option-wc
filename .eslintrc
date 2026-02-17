@@ -1,0 +1,12 @@
+{
+	"extends": ["plugin:@wordpress/eslint-plugin/recommended-with-formatting"],
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jquery": true
+	},
+	"rules": {
+		"@wordpress/no-global-event-listener": "off"
+	},
+	"plugins": ["eslint-plugin-html"]
+}

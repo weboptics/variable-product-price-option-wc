@@ -3,7 +3,7 @@
 Contributors: weboptics, haseebnawaz298
 Tags: woocommerce, variable price, product price, change price,custom price,
 Requires at least: 4.5.0
-Tested up to: 6.7.1
+Tested up to: 6.9
 Stable tag: 1.0.4
 WC requires at least: 3
 WC tested up to: 5.6.0
@@ -66,3 +66,6 @@ Submit a issue <a href="https://github.com/webzombies/variable-product-price-opt
 
  1.0.4 =
 * Updated test
+
+ 1.0.5 =
+* Bump Version

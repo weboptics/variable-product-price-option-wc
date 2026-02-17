@@ -1,0 +1,736 @@
+{
+	"Wrap in translate html": {
+		"prefix": "wrapDomain",
+		"body": ["<?php esc_html_e( '${TM_SELECTED_TEXT}', 'sample_td' ); ?>"],
+		"description": "Wrap selected text in a set value"
+	},
+	"Output var auto": {
+		"prefix": "outputAuto",
+		"body": ["<?php echo esc_html( $${CLIPBOARD} ); ?>"],
+		"description": "Wrap selected text in a set value"
+	},
+	/* WordPress Core */
+	"Headings function for PHP": {
+		"prefix": "phpHeading",
+		"body": [
+			"<<?php echo $${1:tag_name}; ?> class=\"${3:class_name} \"><?php echo $${2:var_name} ?></<?php echo $${1:tag_name}; ?>>"
+		],
+		"description": "inserts code for ACF Heading ."
+	},
+
+	"Acf output spacer": {
+		"prefix": "phpAcfSpacer",
+		"body": [
+			"<div class=\"theme-spacer <?php echo esc_html( $${1:class_name} ); ?> \"></div>"
+		],
+		"description": "Used to output a spacer"
+	},
+	"Output a variable if condition": {
+		"prefix": "phpIfCheck",
+		"body": ["<?php if ( $${1:var_name} ) { ?>", "<?php } ?>"],
+		"description": "Used to output a variable if condition check."
+	},
+	"Output variable with condition output": {
+		"prefix": "phpIfOutput",
+		"body": [
+			"<?php \r",
+			"if ( $${1:var_name} ) {\r",
+			"\techo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( $${1:var_name} );\r",
+			"}\r",
+			"?>"
+		],
+		"description": "Used to output variable with condition check if there is value of in it then print it."
+	},
+	"Output variable with condition output HTML": {
+		"prefix": "phpIfOutputHtml",
+		"body": [
+			"<?php if ( $${1:var_name} ) {  ?>",
+			"\t<${3:html_tag} class=\"${4:class_name}\"> <?php echo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( $${1:var_name} ); ?>  </${3:html_tag}>",
+			"<?php } ?>"
+		],
+		"description": "Used to output variable with condition check if there is value of in it then print it with html."
+	},
+	"Output Template directory URI": {
+		"prefix": "phpTemplateURI",
+		"body": ["<?php echo esc_url( get_template_directory_uri() ); ?>"],
+		"description": "Use this to Output Template directory URI code in a file"
+	},
+	"Output StyleSheet directory URI": {
+		"prefix": "phpStyleURI",
+		"body": ["<?php echo esc_url( get_stylesheet_directory_uri() ); ?>"],
+		"description": "Use this to Output Style directory URI code in a file"
+	},
+	"Output Home URL": {
+		"prefix": "phpHomeURL",
+		"body": ["<?php echo esc_url( home_url() ); ?>"],
+		"description": "Use this to Output home url"
+	},
+	"Output PHP Variable": {
+		"prefix": "phpVarOutput",
+		"body": [
+			"<?php echo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( $${1:var_name} ); ?>"
+		],
+		"description": "Use this to output variable in a html document."
+	},
+	"Code for ACF button build": {
+		"prefix": "phpAcfButton",
+		"body": [
+			"<?php\r",
+			"if ( $${1:to_cta_first_button} ) {\r",
+			"\techo build_acf_button( $${1:to_cta_first_button}, '${2:button}' );\r",
+			"}\r",
+			"?>"
+		],
+		"description": "Use this to for ACF button build method defined in functions.php file."
+	},
+	"Variable call with null as fallback using ternary condition.": {
+		"prefix": "phpAcfVariableCall",
+		"body": [
+			"<?php\r",
+			"$${1:var_name} = $${2|smp_fields,smp_option_fields,smp_block_fields,smp_post_field|}['${1:var_name}'] ?? null;",
+			"?>"
+		],
+		"description": "Use this to get the value of a variable with fallback to null value if not value found."
+	},
+	"WordPress Menu Output": {
+		"prefix": "phpMenuOutput",
+		"body": [
+			"<?php\r",
+			"wp_nav_menu(\r",
+			"\tarray(\r",
+			"\t\t'theme_location' => 'main',\r",
+			"\t\t'fallback_cb' => 'menu_fallback',\r",
+			"\t)\r",
+			");\r",
+			"?>"
+		],
+		"description": "Used to output the WordPress menu in PHP."
+	},
+	"PHP ACF Gravity Form output with ID.": {
+		"prefix": "phpGravityForm",
+		"body": [
+			"<?php echo do_shortcode( '[gravityform id=\"' . $${1:rdca_blok_frm_form} . '\" title=false description=false ajax=true]' ); ?>"
+		],
+		"description": "Used to display the code that outputs the Gravity form."
+	},
+	"Telephone number without Symbols": {
+		"prefix": "phpStripPhone",
+		"body": ["<?php echo preg_replace( '/[^0-9]/', '', $${1:phone} ); ?>"],
+		"description": "Used to display telephone number without symbols"
+	},
+	"Default Image with Get Attachment Image Single": {
+		"prefix": "phpPostImageSingle",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image( get_post_thumbnail_id( \\$post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image"
+	},
+	"Default Image with Get Attachment Image URL Single": {
+		"prefix": "phpPostImageURLSingle",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image_url( get_post_thumbnail_id( \\$post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image URL"
+	},
+
+	"Default Image with Get Attachment Image": {
+		"prefix": "phpPostImage",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image( get_post_thumbnail_id( \\$post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );",
+			"if ( ! has_post_thumbnail() ) {",
+			"\t\\$src = '<img class=\"${2:class_name}\" alt=\"${3:alt_text}\"  src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"}",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image"
+	},
+	"Default Image with Get Attachment Image URL": {
+		"prefix": "phpPostImageURL",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image_url( get_post_thumbnail_id( \\$post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );",
+			"if ( ! has_post_thumbnail() ) {",
+			"\t\\$src = esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp';",
+			"}",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image URL"
+	},
+	"Default Image with Get Attachment Image (With Thumbnail ID)": {
+		"prefix": "phpThumbnailImage",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image( \\$thumbnail_id, '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );",
+			"if ( ! \\$src ) {",
+			"\t\\$src = '<img class=\"${2:class_name}\" alt=\"${3:alt_text}\" src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"}",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image (With Thumbnail ID)"
+	},
+	"Default Image with Get Attachment Image URL (With Thumbnail ID)": {
+		"prefix": "phpThumbnailImageURL",
+		"body": [
+			"<?php\r",
+			"\\$src = wp_get_attachment_image_url( \\$thumbnail_id, '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );",
+			"if ( ! \\$src ) {",
+			"\t\\$src = esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp';",
+			"}",
+			"?>"
+		],
+		"description": "Default Image with Get Attachment Image URL (With Thumbnail ID)"
+	},
+	"Output default global variables.": {
+		"prefix": "phpGlobalVars",
+		"body": [
+			"<?php\r",
+			"// Global variables.\r",
+			"global \\$option_fields;\r",
+			"global \\$post_id;\r",
+			"global \\$fields;\r",
+			"?>\r"
+		],
+		"description": "Use this to display the global variables being used in default theme."
+	},
+	"Display CPT posts by ACF Relationship attribute.": {
+		"prefix": "phpAcfRelationshipPostsOutput",
+		"body": [
+			"<?php\r",
+			"global \\$post;\r",
+			"\\$lp_select_posts = array();\r",
+			"\\$lp_select_posts = \\$${1|fields,option_fields,block_fields,post_fields|}['${2:var_name}'];\r",
+			"if ( \\$lp_select_posts ) {\r",
+			"\tforeach ( \\$lp_select_posts as \\$lp_posts ) {\r",
+			"\t\t\\$post = \\$lp_posts;\r",
+			"\t\tsetup_postdata( \\$post );\r",
+			"\t\t\\$post_id         = \\$post->ID;\r",
+			"\t\t\\$post_fields = get_fields( \\$post_id );\r",
+			"\t\t\\$custom_field  = \\$post_fields['custom_field'];\r",
+			"\t\tif(has_post_thumbnail()){\r",
+			"\t\t\\$src = get_post_thumbnail_url( \\$post_id , 'full');\r",
+			"\t\t\\}else{\r",
+			"\t\t\\$src = esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp';\r",
+			"\t\t\\}\r",
+			"\r",
+			"}} wp_reset_query();wp_reset_postdata();\r",
+			"?>"
+		],
+		"description": "Use this display CPT posts by ACF Relationship attribute."
+	},
+	"Acf foreach": {
+		"prefix": "phpAcfForeach",
+		"body": [
+			"<?php\r",
+			"if ( $${1:variable} ) {",
+			"?>",
+			"\t<div class=\"${4:class_name}\">",
+			"\t\t<?php",
+			"\t\t\tforeach( $${1:variable} as \\$key =>  $${2:value} ){",
+			"\t\t\t\t$${3:title} = (isset($${2:value}['${3:title}']) ) ? $${2:value}['${3:title}'] : null;",
+			"\t\t\t\t?>",
+			"\t\t\t\t<?php",
+			"\t\t\t}",
+			"\t\t?>",
+			"\t</div>",
+			"<?php\r",
+			"}",
+			"?>"
+		],
+		"description": "Use this to get all terms of a specificied taxonomy."
+	},
+	"PHP Faq's": {
+		"prefix": "faqsOutput",
+		"body": [
+			"<div class=\"faq-block faq\">",
+			"\t<div class=\"section-head\">",
+			"\t\t<<?php echo $${1:tag_name}; ?> class=\"heading-2\"><?php echo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( \\$faq_title ); ?></<?php echo $${1:tag_name}; ?>>",
+			"\t\t<p><?php echo ${3|esc_html,esc_url,html_entity_decode,html_entity_remove|}( \\$faq_text ); ?></p>",
+			"\t</div>",
+			"\t<?php",
+			"\tif ( \\$faqs ) {",
+			"\t\tforeach( \\$faqs as \\$key =>  \\$faq ){",
+			"\t\t\t\\$question = (isset(\\$faq['question']) ) ? \\$faq['question'] : null;",
+			"\t\t\t\\$answer = (isset(\\$faq['answer']) ) ? \\$faq['answer'] : null;",
+			"\t\t\t?>",
+			"\t\t\t<div class=\"faq__ctn\">",
+			"\t\t\t\t<div class=\"faq__single\">",
+			"\t\t\t\t\t<span><?php echo html_entity_decode( \\$question ); ?></span>",
+			"\t\t\t\t\t<div class=\"faq__content\">",
+			"\t\t\t\t\t\t<?php echo html_entity_decode( \\$answer ); ?>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t<?php",
+			"\t\t}",
+			"\t}",
+			"\t?>",
+			"</div>"
+		],
+		"description": "Use this to display faqs block in HTML."
+	},
+	/* HTML */
+	"Faq's": {
+		"prefix": "faqs",
+		"body": [
+			"<div class=\"faq-block faq\">",
+			"\t<div class=\"section-head\">",
+			"\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t<p>Here is sub heaing</p>",
+			"\t</div>",
+			"\t<div class=\"faq__ctn\">",
+			"\t\t<div class=\"faq__single\">",
+			"\t\t\t<span>Faq Titile here</span>",
+			"\t\t\t<div class=\"faq__content\">",
+			"\t\t\t\tFaq content goes here",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "Use this to display faqs block in HTML."
+	},
+	"Section Head": {
+		"prefix": "section-head",
+		"body": [
+			"<div class=\"section-head\">",
+			"\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t<p>Here is sub heaing</p>",
+			"</div>"
+		],
+		"description": "Use this to display Section head in block."
+	},
+	"Image AlongSide Text": {
+		"prefix": "image-alongside-text",
+		"body": [
+			"<div class=\"iat two-columns ${1|align-items-center,align-items-end,align-items-start|} ${2|image-at-right, image-at-left|}\">",
+			"\t<div class=\"iat__image column\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</div>",
+			"\t<div class=\"iat__text column\">",
+			"\t\t<div class=\"kicker\">",
+			"\t\t\t kicker heading",
+			"\t\t</div>",
+			"\t\t<div class=\"iat__content\">",
+			"\t\t\t<h2 class=\"heading-2\">iat heading</h2>",
+			"\t\t\t<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sint ad aperiam atque eos quaerat quod nemo fugiat consequatur alias?</p>",
+			"\t\t\t<a href=\"#\" class=\"button\">Get in Touch</a>",
+			"\t\t</div>",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "Use this to display Image Alongside block in HTML."
+	},
+	"Default Hero": {
+		"prefix": "default-hero",
+		"body": [
+			"<section id=\"hero-section\" class=\"hero-section\">",
+			"\t<div class=\"toolkit__hero center-align\">",
+			"\t\t<div class=\"wrapper\">",
+			"\t\t\t<div class=\"toolkit__content-area\">",
+			"\t\t\t\t<h1 class=\"heading-1\">Page Title</h1>",
+			"\t\t\t\t<div class=\"toolkit__content\">",
+			"\t\t\t\t\t<p> Vitae morbi donec in sed eget sit consectetur cursus. Sit dictum sagittis egestas felis sed viverra libero vitae. Phasellus a, ullamcorper in nulla viverra arcu. Sed scelerisque ornare auctor sed neque. </p>",
+			"\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Default Hero in HTML."
+	},
+	"Default Hero With Bg Image": {
+		"prefix": "default-hero-with-bg-image",
+		"body": [
+			"<section id=\"hero-section\" class=\"hero-section\">",
+			"\t<div class=\"toolkit__hero center-align with-bg\" style=\"background-image: url(../assets/img/defaults/default-image.webp)\">",
+			"\t\t<div class=\"wrapper\">",
+			"\t\t\t<div class=\"toolkit__content-area\">",
+			"\t\t\t\t<h1 class=\"heading-1\">Page Title</h1>",
+			"\t\t\t\t<div class=\"toolkit__content\">",
+			"\t\t\t\t\t<p> Vitae morbi donec in sed eget sit consectetur cursus. Sit dictum sagittis egestas felis sed viverra libero vitae. Phasellus a, ullamcorper in nulla viverra arcu. Sed scelerisque ornare auctor sed neque. </p>",
+			"\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Default Hero With BG Image in HTML."
+	},
+	"Default Hero With Image": {
+		"prefix": "default-hero-with-image",
+		"body": [
+			"<section id=\"hero-section\" class=\"hero-section\">",
+			"\t<div class=\"toolkit__hero\">",
+			"\t\t<div class=\"wrapper\">",
+			"\t\t\t<div class=\"toolkit__content-area ${1|flex-center,flex-start,flex-end|}\">",
+			"\t\t\t\t<div class=\"toolkit__content\">",
+			"\t\t\t\t\t<h1 class=\"heading-1\">For Referring Physicians</h1>",
+			"\t\t\t\t\t<p> Vitae morbi donec in sed eget sit consectetur cursus. Sit dictum sagittis egestas felis sed viverra libero vitae. Phasellus a, ullamcorper in nulla viverra arcu. Sed scelerisque ornare auctor sed neque. </p>",
+			"\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"toolkit__image\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Default Hero With Image in HTML."
+	},
+	"MidPage CTA": {
+		"prefix": "midpage-cta",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"mp__cta\">",
+			"\t\t\t<div class=\"mp__content\">",
+			"\t\t\t\t<h2 class=\"heading-2\">Here is heaing</h2>",
+			"\t\t\t\t<p>Here is contant</p>",
+			"\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display MidPage CTA block in HTML."
+	},
+	"MidPage CTA With Image": {
+		"prefix": "midpage-cta-image",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"mp__cta with-image ${2|flex-center,flex-start,flex-end|}\">",
+			"\t\t\t<div class=\"mp-cta__content-area\">",
+			"\t\t\t\t<h2 class=\"heading-2\">Heaing Goes Here</h2>",
+			"\t\t\t\t<p>Here is contant</p>",
+			"\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"mp-cta__image\">",
+			"\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display MidPage CTA block in HTML."
+	},
+	"Two Columns": {
+		"prefix": "two-column",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"two-columns\">",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Two Column Block in HTML"
+	},
+	"Three Columns": {
+		"prefix": "three-column",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"three-columns\">",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Three Column Block in HTML"
+	},
+	"Four Columns": {
+		"prefix": "four-column",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"four-columns\">",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"column\">",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Four Column Block in HTML"
+	},
+	"Icon With Discription": {
+		"prefix": "iwd",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"iwd__ctn three-columns\">",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Icon With Discription Block in HTML"
+	},
+	"Icon With Discription With Button": {
+		"prefix": "iwd-with-button",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"iwd-ctn three-columns\">",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t\t<div class=\"iwd-single__button\">",
+			"\t\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t\t<div class=\"iwd-single__button\">",
+			"\t\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t\t<div class=\"iwd-single column\">",
+			"\t\t\t\t<div class=\"iwd-single__icon\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div class=\"iwd-single__content\">",
+			"\t\t\t\t\t<h4 class=\"heading-5\">Exterior Painting</h4>",
+			"\t\t\t\t\t<p>Ut faucibus pulvinar elementum integer enim neque</p>",
+			"\t\t\t\t\t<div class=\"iwd-single__button\">",
+			"\t\t\t\t\t\t<a href=\"#\" class=\"button\">CTA Button</a>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Icon With Discription With Button Block in HTML"
+	},
+	"Image With Caption": {
+		"prefix": "image-with-caption",
+		"body": [
+			"<figure class=\"wp-caption alignnone\">",
+			"\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t<figcaption class=\"wp-caption-text\">",
+			"\t\tPraesent tristique magna sit amet purus gravida. Leo in vitae turpis massa sed. Leo vel orci porta non pulvinar neque laoreet suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus",
+			"\t</figcaption>",
+			"</figure>"
+		],
+		"description": "Use this to display Image With Caption in HTML"
+	},
+	"Logo Grid": {
+		"prefix": "logo-grid",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"logo-grid ${2|three-columns,four-columns|}\">",
+			"\t\t\t<div class=\"logo__single column\">",
+			"\t\t\t\t<div class=\"logo__single--inner\">",
+			"\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Logo Grid Block in HTML"
+	},
+	"Social Icons": {
+		"prefix": "social-icons",
+		"body": [
+			"<div class=\"social-icons-ctn ${1|flex-center,flex-start,flex-end|}\">",
+			"\t<a class=\"social-icon facebook-icon\" target=\"_blank\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</a>",
+			"\t<a class=\"social-icon twitter-icon\" target=\"_blank\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</a>",
+			"\t<a class=\"social-icon instagram-icon\" target=\"_blank\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</a>",
+			"\t<a class=\"social-icon youtube-icon\" target=\"_blank\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</a>",
+			"\t<a class=\"social-icon linkedin-icon\" target=\"_blank\">",
+			"\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t</a>",
+			"</div>"
+		],
+		"description": "Use this to display Logo Grid Block in HTML"
+	},
+	"Related Posts": {
+		"prefix": "related-posts",
+		"body": [
+			"<section class=\"${1|full-with-ctn,ctn-980,ctn-780|}\">",
+			"\t<div class=\"wrapper\">",
+			"\t\t<div class=\"section-head\">",
+			"\t\t\t<h2 class=\"heading-2\">Block Heading</h2>",
+			"\t\t\t<p>Here is sub heaing</p>",
+			"\t\t</div>",
+			"\t\t<div class=\"post-archive post-area ${2|two-column,three-columns,four-columns|} ${3|flex-center,flex-start,flex-end|}\">",
+			"\t\t\t<article class=\"post-area__box column\">",
+			"\t\t\t\t<a href=\"#\">",
+			"\t\t\t\t\t<div class=\"post-area__img\">",
+			"\t\t\t\t\t\t<img src=\"../assets/img/defaults/default-image.webp\" alt=\"\">",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t\t<div class=\"post-area__content\">",
+			"\t\t\t\t\t\t<div class=\"post-area__cat\">",
+			"\t\t\t\t\t\t\t<span>Pharetra diam</span>",
+			"\t\t\t\t\t\t</div>",
+			"\t\t\t\t\t\t<div class=\"post-area__title\">",
+			"\t\t\t\t\t\t\t<h4> Sed risus pretium quam vulputate dignissim suspendisse </h4>",
+			"\t\t\t\t\t\t</div>",
+			"\t\t\t\t\t\t<div class=\"post-area__excerpt\">",
+			"\t\t\t\t\t\t\t<p>Fermentum dui faucibus in ornare quam viverra orci sagittis. Fringilla est ... </p>",
+			"\t\t\t\t\t\t</div>",
+			"\t\t\t\t\t\t<span class=\"learn-more\">Read more</span>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</a>",
+			"\t\t\t</article>",
+			"\t\t</div>",
+			"\t</div>",
+			"</section>"
+		],
+		"description": "Use this to display Related Posts in HTML"
+	},
+	"Sliding Carousel": {
+		"prefix": "sliding-carousel",
+		"body": [
+			"<div class=\"sliding-carousel owl-carousel owl-theme\">",
+			"\t<div class=\"item\">",
+			"\t\t Use your on HTML structure according to design",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "Use this to display Sliding Carousel in HTML"
+	},
+
+	"BlockTitle": {
+		"prefix": "BlockTitle",
+		"body": [
+			"<?php if ( Sample::is_block_title( $${1:smp_var_blkfetrdtxt_title} ) ) { ?>",
+			"\t<?php Sample::the_block_title( $${1:smp_var_blkfetrdtxt_title}, 'heading-2' ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display block title if it exists"
+	},
+
+	"BlockButton": {
+		"prefix": "BlockButton",
+		"body": [
+			"<?php if ( $${1:smp_var_blkfetrdtxt_btn} ) { ?>",
+			"\t<?php Sample::button( $${1:smp_var_blkfetrdtxt_btn}, 'button' ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display a button if variable exists"
+	},
+
+	"TernaryCondition": {
+		"prefix": "TernaryCondition",
+		"body": [
+			"$${1:variable} = ( 0 === $${1:variable} ) ? 'classone' : 'classtwo'; "
+		],
+		"description": "Get image position class based on key"
+	},
+
+	"FeaturedImage": {
+		"prefix": "FeaturedImage",
+		"body": [
+			"<?php if ( $${1:smp_var_img} ) { ?>",
+			"\t<?php Sample::the_featured_image( $${1:smp_var_img}, 1000 ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display featured image if variable exists"
+	},
+
+	"AttachmentImage": {
+		"prefix": "AttachmentImage",
+		"body": [
+			"<?php if ( $${1:smp_var_img} ) { ?>",
+			"\t<?php Sample::the_attachment_image( $${1:smp_var_img}, 500 ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display Attachment  image if variable exists"
+	}
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Theme">
+	<description>PHPCS Ruleset for a WordPress Theme</description>
+	<!-- Check files in this directory and subdirectories. -->
+	<file>.</file>
+	<!-- Prevent sniffs of some directories. -->
+	<!-- Exclude the Composer Vendor directory. -->
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>editor.min.asset.php</exclude-pattern>
+
+	<!-- Exclude the Node Modules directory. -->
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<exclude-pattern>/blocks/section-container/*</exclude-pattern>
+	<!-- Pass flags to PHPCS:
+		 p: Show progress of the run.
+		 s: Show sniff codes in all reports.
+		 v: Print verbose output.
+	-->
+
+	<!-- Strip the filepaths down to the relevant bit. -->
+	<!-- <arg name="basepath" value="."/> -->
+
+	<!-- Check up to 8 files simultaneously. -->
+	<arg name="parallel" value="8"/>
+	<arg value="psv"/>
+	<!-- Only check PHP files. -->
+	<arg name="extensions" value="php"/>
+	<!-- Use the WordPress ruleset, with exclusions. -->
+	<rule ref="WordPress">
+		<exclude name="Squiz.PHP.CommentedOutCode.Found"/>
+	</rule>
+	<!-- Page templates currently use underscores for historic reasons. -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>page_landing.php</exclude-pattern>
+	</rule>
+	<!-- Verify that no WP functions are used which are deprecated or removed. -->
+	<rule ref="WordPress.WP.DeprecatedFunctions">
+		<properties>
+			<property name="minimum_supported_version" value="4.4"/>
+		</properties>
+	</rule>
+	<!-- Check all globals have the expected prefix. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="WP_Theme, HS_WCVPO, HS_WCVPO_"/>
+		</properties>
+	</rule>
+	<!-- Allow theme-specific exceptions to WordPress filename rules. -->
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array" value="HS_WCSH,html_entity_decode, html_entity_remove, build_acf_button,build_excerpt,build_excerpt_nomore"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.Security.ValidatedSanitizedInput">
+		<properties>
+			<property name="customSanitizingFunctions" type="array">
+				<element value="recursive_sanitize_text_field" />
+			</property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.WP">
+		<exclude name="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page"/>
+	</rule>
+</ruleset>

@@ -1,0 +1,22 @@
+== Variable Product Price Option for WooCommerce Changelog ==
+
+= 1.0.0 =
+* Release first version
+
+= 1.0.1 =
+* Add banner, icon and screenshot
+
+= 1.0.2 =
+
+* Option to enable disable custom price feature.
+* added install instruction
+* added screenshot
+
+ 1.0.3 =
+* Updated test
+
+ 1.0.4 =
+* Updated test
+
+ 1.0.5 =
+* Bump Version

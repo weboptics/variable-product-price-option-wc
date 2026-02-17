@@ -1,0 +1,264 @@
+{
+	/* WordPress Core */
+	"Wrap var to prefix": {
+		"prefix": "wrapVarPrefix",
+		"body": ["$$smp_${TM_SELECTED_TEXT/(\\$bst|\\$)//g}"],
+		"description": "Wrap selected text in a set value"
+	},
+	"Wrap in esc url": {
+		"prefix": "wrapUrl",
+		"body": ["esc_url( ${TM_SELECTED_TEXT} )"],
+		"description": "Wrap selected text in a set value"
+	},
+	"Variable call with null as fallback using ternary condition.": {
+		"prefix": "acfVariableCall",
+		"body": [
+			"$${1:var_name} = $${2|smp_fields,smp_option_fields,smp_block_fields,smp_post_field|}['${1:var_name}'] ?? null;"
+		],
+		"description": "Use this to get the value of a variable with fallback to null value if not value found."
+	},
+	"Wrap in esc html": {
+		"prefix": "wrapHtml",
+		"body": ["esc_html( ${TM_SELECTED_TEXT} )"],
+		"description": "Wrap selected text in a set value"
+	},
+	"Translation function": {
+		"prefix": "translationFun",
+		"body": ["esc_html_e( '${1:String to translate}', 'sample_td' );"],
+		"description": "inserts code for WordPress translation in HTML document."
+	},
+	"Translation function for HTML": {
+		"prefix": "phpTranslationFun",
+		"body": [
+			"<?php esc_html_e( '${1:String to translate}', 'sample_td' ); ?>"
+		],
+		"description": "inserts code for WordPress translation in HTML document."
+	},
+	"Output a variable if condition": {
+		"prefix": "ifCheck",
+		"body": ["\tif($${1:smp_var_name}){\r", "", "\t}\r"],
+		"description": "Used to output a variable if condition check."
+	},
+	"Output variable with condition output": {
+		"prefix": "ifOutput",
+		"body": [
+			"if ( $${1:smp_var_name} ) {\r",
+			"\techo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( $${1:html_entity_remove} );\r",
+			"}\r"
+		],
+		"description": "Used to output variable with condition check if there is value of in it then print it."
+	},
+	"Output variable with condition output HTML": {
+		"prefix": "ifOutputHtml",
+		"body": [
+			"if ( $${1:smp_var_name} ) {  ?>",
+			"\t<${3:html_tag} class=\"${4:class_name}\"> <?php echo ${2|esc_html,esc_url,html_entity_decode,html_entity_remove|}( $${1:smp_var_name} ); ?>  </${3:html_tag}>",
+			"<?php } "
+		],
+		"description": "Used to output variable with condition check if there is value of in it then print it with html."
+	},
+	"Output Template directory URI": {
+		"prefix": "templateURI",
+		"body": ["echo esc_url( get_template_directory_uri() );"],
+		"description": "Use this to Output Template directory URI code in a file"
+	},
+	"Output StyleSheet directory URI": {
+		"prefix": "styleURI",
+		"body": ["echo esc_url( get_stylesheet_directory_uri() );"],
+		"description": "Use this to Output Style directory URI code in a file"
+	},
+	"Add Default Featured Image": {
+		"prefix": "featureImage",
+		"body": [
+			"if ( ! has_post_thumbnail() ) {",
+			"\techo '<img class=\"\" title=\"' . esc_html( get_the_title() ) . '\" alt=\"' . esc_html( get_the_title() ) . '\" src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"} else {",
+			"\techo get_the_post_thumbnail( \\$smp_var_post_id, '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}');",
+			"}"
+		],
+		"description": "Add default featured image if post does not have one"
+	},
+	"Add Default Featured Image PHP": {
+		"prefix": "phpFeatureImage",
+		"body": [
+			"<?php\r",
+			"if ( ! has_post_thumbnail() ) {",
+			"\techo '<img class=\"\" src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"} else {",
+			"\ttecho get_the_post_thumbnail( \\$smp_var_post_id,  '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', array( 'class' => '', 'alt' => get_the_title(), 'title' => get_the_title(), ) );",
+			"}",
+			"?>"
+		],
+		"description": "Add default featured image if post does not have one"
+	},
+
+	"WordPress Menu Output": {
+		"prefix": "menuOutput",
+		"body": [
+			"wp_nav_menu(\r",
+			"\tarray(\r",
+			"\t\t'theme_location' => 'main',\r",
+			"\t\t'fallback_cb' => 'menu_fallback',\r",
+			"\t)\r",
+			");\r"
+		],
+		"description": "Used to output the WordPress menu in PHP."
+	},
+	"PHP ACF Gravity Form output with ID.": {
+		"prefix": "gravityForm",
+		"body": [
+			"echo do_shortcode( '[gravityform id=\"' . $${1:smp_var_gform} . '\" title=false description=false ajax=true]' );"
+		],
+		"description": "Used to display the code that outputs the Gravity form."
+	},
+	"Telephone number without Symbols": {
+		"prefix": "stripPhone",
+		"body": ["echo preg_replace( '/[^0-9]/', '', $${1:smp_var_phone} );"],
+		"description": "Used to display telephone number without symbols"
+	},
+	"Default Image with Get Attachment Image Single": {
+		"prefix": "postImageSingle",
+		"body": [
+			"\\$src = wp_get_attachment_image( get_post_thumbnail_id( \\$smp_var_post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );"
+		],
+		"description": "Default Image with Get Attachment Image"
+	},
+	"Default Image with Get Attachment Image URL Single": {
+		"prefix": "postImageURLSingle",
+		"body": [
+			"\\$src = wp_get_attachment_image_url( get_post_thumbnail_id( \\$smp_var_post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );"
+		],
+		"description": "Default Image with Get Attachment Image URL"
+	},
+	"Default Image with Get Attachment Image": {
+		"prefix": "postImage",
+		"body": [
+			"\\$src = wp_get_attachment_image( get_post_thumbnail_id( \\$smp_var_post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );",
+			"if ( ! has_post_thumbnail() ) {",
+			"\t\\$src = '<img class=\"${2:class_name}\" alt=\"${3:alt_text}\"  src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"}"
+		],
+		"description": "Default Image with Get Attachment Image"
+	},
+	"Default Image with Get Attachment Image URL": {
+		"prefix": "postImageURL",
+		"body": [
+			"\\$src = wp_get_attachment_image_url( get_post_thumbnail_id( \\$smp_var_post_id ), '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );",
+			"if ( ! has_post_thumbnail() ) {",
+			"\t\\$src = esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp';",
+			"}"
+		],
+		"description": "Default Image with Get Attachment Image URL"
+	},
+	"Default Image with Get Attachment Image (With Thumbnail ID)": {
+		"prefix": "thumbnailImage",
+		"body": [
+			"\\$src = wp_get_attachment_image( \\$thumbnail_id, '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}', null, array( 'class' => '${2:class_name}', 'alt'  => '${3:alt_text}' ) );",
+			"if ( ! \\$src ) {",
+			"\t\\$src = '<img class=\"${2:class_name}\" alt=\"${3:alt_text}\" src=\"' . esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp\" >';",
+			"}"
+		],
+		"description": "Default Image with Get Attachment Image (With Thumbnail ID)"
+	},
+	"Default Image with Get Attachment Image URL (With Thumbnail ID)": {
+		"prefix": "thumbnailImageURL",
+		"body": [
+			"\\$src = wp_get_attachment_image_url( \\$thumbnail_id, '${1|thumb_100,thumb_200,thumb_300,thumb_400,thumb_500,thumb_600,thumb_700,thumb_800,thumb_900,thumb_1000,thumb_1200,thumb_1400,thumb_1600,thumb_2000|}' );",
+			"if ( ! \\$src ) {",
+			"\t\\$src = esc_url( get_template_directory_uri() ) . '/assets/build/images/admin/defaults/default-image.webp';",
+			"}"
+		],
+		"description": "Default Image with Get Attachment Image URL (With Thumbnail ID)"
+	},
+	"Output default global variables.": {
+		"prefix": "globalVars",
+		"body": [
+			"// Global variables.\r",
+			"list( \\$smp_var_post_id, \\$smp_fields, \\$smp_option_fields ) = Sample::defaults();"
+		],
+		"description": "Use this to display the global variables being used in default theme."
+	},
+	"Var Dump a variable in PHP": {
+		"prefix": "varDump",
+		"body": [
+			"var_dump($${1|smp_fields,smp_option_fields,smp_block_fields,smp_post_field|});"
+		],
+		"description": "Use to var dump a variable in a php code."
+	},
+	"Get all terms of a custom taxonomy.": {
+		"prefix": "wpTermsTaxonomy",
+		"body": [
+			"$${1:tax_name}_terms = get_terms([\r",
+			"\t'taxonomy' => '${1:tax_name}',\r",
+			"\t'hide_empty' => false,\r",
+			"]);"
+		],
+		"description": "Use this to get all terms of a specificied taxonomy."
+	},
+	"Acf foreach": {
+		"prefix": "acfForeach",
+		"body": [
+			"if ( $${1:variable} ) {",
+			"?>",
+			"\t<div class=\"${4:class_name}\">",
+			"\t\t<?php",
+			"\t\t\tforeach( $${1:variable} as \\$key =>  $${2:value} ){",
+			"\t\t\t\t$${3:title} = (isset($${2:value}['${3:title}']) ) ? $${2:value}['${3:title}'] : null;",
+			"\t\t\t\t?>",
+			"\t\t\t\t<?php",
+			"\t\t\t}",
+			"\t\t?>",
+			"\t</div>",
+			"<?php\r",
+			"}"
+		],
+		"description": "Use this to get all terms of a specificied taxonomy."
+	},
+	"BlockTitle": {
+		"prefix": "BlockTitle",
+		"body": [
+			"<?php if ( Sample::is_block_title( $${1:smp_var_blkfetrdtxt_title} ) ) { ?>",
+			"\t<?php Sample::the_block_title( $${1:smp_var_blkfetrdtxt_title}, 'heading-2' ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display block title if it exists"
+	},
+
+	"BlockButton": {
+		"prefix": "BlockButton",
+		"body": [
+			"<?php if ( $${1:smp_var_blkfetrdtxt_btn} ) { ?>",
+			"\t<?php Sample::button( $${1:smp_var_blkfetrdtxt_btn}, 'button' ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display a button if variable exists"
+	},
+
+	"TernaryCondition": {
+		"prefix": "TernaryCondition",
+		"body": [
+			"$${1:variable} = ( 0 === $${1:variable} ) ? 'classone' : 'classtwo'; "
+		],
+		"description": "Get image position class based on key"
+	},
+
+	"FeaturedImage": {
+		"prefix": "FeaturedImage",
+		"body": [
+			"<?php if ( $${1:smp_var_img} ) { ?>",
+			"\t<?php Sample::the_featured_image( $${1:smp_var_img}, 1000 ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display featured image if variable exists"
+	},
+
+	"AttachmentImage": {
+		"prefix": "AttachmentImage",
+		"body": [
+			"<?php if ( $${1:smp_var_img} ) { ?>",
+			"\t<?php Sample::the_attachment_image( $${1:smp_var_img}, 500 ); ?>",
+			"<?php } ?>"
+		],
+		"description": "Display Attachment  image if variable exists"
+	}
+}
