@@ -3,8 +3,8 @@
 Contributors: weboptics, haseebnawaz298
 Tags: woocommerce, variable price, product price, change price,custom price,
 Requires at least: 4.5.0
-Tested up to: 6.9
-Stable tag: 1.0.4
+Tested up to: 7.0
+Stable tag: 1.0.6
 WC requires at least: 3
 WC tested up to: 5.6.0
 License: GPL v2 or later
@@ -67,5 +67,12 @@ Submit a issue <a href="https://github.com/webzombies/variable-product-price-opt
  1.0.4 =
 * Updated test
 
- 1.0.5 =
+= 1.0.5 =
 * Bump Version
+
+= 1.0.6 =
+* Fixed decimal price support — prices like $19.99 now work correctly
+* Fixed nonce verification for custom price form submission
+* Fixed nonce verification for product meta save
+* Fixed "Enable Custom Price" display on product page using correct product global
+* Escaped translated strings on frontend output

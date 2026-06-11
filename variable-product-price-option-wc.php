@@ -3,7 +3,7 @@
  * Plugin Name:       Variable Product Price Option for WooCommerce
  * Plugin URI:        https://github.com/weboptics/variable-product-price-option-wc
  * Description:       This plugin gives the ability to alter price of product in WordPress Woocommerce.
- * Version:           1.0.5
+ * Version:           1.0.6
  * Requires at least: 5.8
  * Requires PHP:      7.2
  * Author:            WebOptics
@@ -13,7 +13,7 @@
  * Text Domain:       variable-product-price-option-wc
  * Requires Plugins:  woocommerce
  *
- * @package           1.0.5
+ * @package           1.0.6
  */
 
 // disallow direct access.
@@ -88,7 +88,7 @@ class HS_WCVPO_Init {
 
 		$product = wc_get_product( $product_id );
 
-		$custom_price = isset( $_POST['custom-price'] ) ? absint( wp_unslash( $_POST['custom-price'] ) ) : 0;
+		$custom_price = isset( $_POST['custom-price'] ) ? wc_format_decimal( sanitize_text_field( wp_unslash( $_POST['custom-price'] ) ) ) : 0;
 
 		if ( $custom_price > 0 ) {
 			$cart_item_data['donation_price']      = $custom_price;
