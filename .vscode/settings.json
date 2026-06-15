@@ -46,5 +46,6 @@
 		"editor.defaultFormatter": "vscode.html-language-features"
 	},
 	"cSpell.words": ["ABSPATH", "absint"],
-	"workbench.editor.dragToOpenWindow": false
+	"workbench.editor.dragToOpenWindow": false,
+	"svn.ignoreMissingSvnWarning": true
 }
